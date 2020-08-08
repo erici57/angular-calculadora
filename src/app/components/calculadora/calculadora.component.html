@@ -1,0 +1,42 @@
+<div class="row">
+
+    <div class="col col-7">
+
+        <div class="calculator">
+
+            <h2>Calculadora</h2>
+
+            <div>
+                <input type="text" class=" input result" readonly value="{{ result }}">
+            </div>
+
+            <div>
+                <button class="boton" *ngFor="let boton of buttons" (click)="addToExpression(boton)"> {{ boton }} </button>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="col col-5 mt-5">
+
+        <div class="btn-group" role="group">
+            <button type="button" class="btn btn-secondary" (click)="getSesiones()">MOSTRAR SESIONES</button>
+            <button type="button" class="btn btn-dark" (click)="ocultarsSesiones()">OCULTAR SESIONES</button>
+
+        </div>
+
+        <br> <br>
+
+        <div>
+            <ng-container *ngIf="history">
+
+                <input *ngFor="let sesion of sesiones; let i=index" (click)="seleccionarOperacion(i)" type="text" class=" input2 " readonly value="{{ sesion.operacion }}">
+
+            </ng-container>
+        </div>
+
+
+    </div>
+
+</div>
